@@ -14,7 +14,7 @@ const sqrtNumArray = (arr) => {
 }
 
 const hasProperty = (arr, property) => {
-    return arr.filter(obj => obj.hasOwnProperty(property));
+    return arr.filter(el => el.hasOwnProperty(property));
 }
 
 const sumOfArr = (arr) => {
@@ -22,24 +22,17 @@ const sumOfArr = (arr) => {
 }
 
 function highLevelFunc (arr, func) {
-    return arr.map(func).filter(value => value !== undefined)
+    return arr.map(func).filter(value => value != null)
 }
 
-const a = (el) => {
+const addOne = (el) => {
     return el + 1
 }
 
-sqrtNumArray(evenNumArray(arr)).forEach(element => {
-  console.log(element)  
-})
-
-console.log(sqrtNumArray(arr))
-
-highLevelFunc(arr, a).forEach(element => {
+// Тест
+highLevelFunc(arr, addOne).forEach(element => {
     console.log(element)  
   })
-
-console.log(sumOfArr(arr))
 
 // Сумма квадратов всех четных чисел в заданном массиве
 
@@ -47,6 +40,16 @@ console.log(sumOfArr(sqrtNumArray(evenNumArray(arr))))
 
 // Среднее арифметическое всех чисел, больших заданного значения, в заданном массиве объектов
 
-const value = 20
+const value = 10
 
-console.log(sumOfArr(highLevelFunc(arr, function(num) {if(num > value) return num})))
+const property = ""
+
+const averAboveValue = (arr, property, value) => {
+    const filtered = arr
+        .filter(el[property] > value)
+        .map(el => el[property]);
+
+    return filtered.length ? sumOfArr(filtered) / filtered.length : null;
+};
+
+console.log(averAboveValue(hasProperty(arr, property), property, value))
