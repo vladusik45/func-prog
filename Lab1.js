@@ -13,11 +13,8 @@ const sqrtNumArray = (arr) => {
     })
 }
 
-function averageByCondition(arr, condition) {
-    // Фильтруем и извлекаем все значения, удовлетворяющие условию
-    return filtered = arr
-        .flatMap(obj => Object.values(obj)) // Достаем все значения из объектов
-        .filter(value => typeof value === "number" && condition(value))
+const hasProperty = (arr, property) => {
+    return arr.filter(obj => obj.hasOwnProperty(property));
 }
 
 const sumOfArr = (arr) => {
@@ -50,6 +47,6 @@ console.log(sumOfArr(sqrtNumArray(evenNumArray(arr))))
 
 // Среднее арифметическое всех чисел, больших заданного значения, в заданном массиве объектов
 
-const value = 10
+const value = 20
 
 console.log(sumOfArr(highLevelFunc(arr, function(num) {if(num > value) return num})))
